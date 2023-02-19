@@ -13,12 +13,12 @@ let res; // ChatGPT Thread Identifier
 // Discord Slash Commands Defines
 const commands = [
     {
-        name: 'ask',
-        description: 'Ask Anything!',
+        name: process?.env?.CUSTOM_SLASH_COMMAND || 'ask',
+        description: process?.env?.CUSTOM_DESCRIPTION || 'Ask Anything!',
         options: [
             {
-                name: "question",
-                description: "Your question",
+                name: process?.env?.CUSTOM_INTERACTION_NAME || 'question',
+                description: process?.env?.CUSTOM_INTERACTION_DESCRIPTION || 'Your question',
                 type: 3,
                 required: true
             }
@@ -131,7 +131,7 @@ async function main() {
         console.log(chalk.greenBright('Connected to Discord Gateway'));
         console.log(new Date())
         client.user.setStatus('online');
-        client.user.setActivity('/ask');
+        client.user.setActivity(`/${commands[0].name}`);
     });
 
     // Channel Message Handler
@@ -141,7 +141,7 @@ async function main() {
         client.user.setActivity(interaction.user.tag, { type: ActivityType.Watching });
 
         switch (interaction.commandName) {
-            case "ask":
+            case commands[0].name:
                 ask_Interaction_Handler(interaction);
                 break;
             case "ping":
@@ -155,11 +155,11 @@ async function main() {
     async function ping_Interaction_Handler(interaction) {
         const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
         interaction.editReply(`Websocket Heartbeat: ${interaction.client.ws.ping} ms. \nRoundtrip Latency: ${sent.createdTimestamp - interaction.createdTimestamp} ms`);
-        client.user.setActivity('/ask');
+        client.user.setActivity(`/${commands[0].name}`);
     }
 
     async function ask_Interaction_Handler(interaction) {
-        const question = interaction.options.getString("question");
+        const question = interaction.options.getString(commands[0].options[0].name);
 
         console.log("----------Channel Message--------");
         console.log("Date & Time : " + new Date());
@@ -178,7 +178,7 @@ async function main() {
                 } else {
                     await interaction.editReply(`**${interaction.user.tag}:** ${question}\n**${client.user.username}:** ${content.response}\n</>`);
                 }
-                client.user.setActivity('/ask');
+                client.user.setActivity(`/${commands[0].name}`);
                 // TODO: send to DB
             })
         } catch (e) {
