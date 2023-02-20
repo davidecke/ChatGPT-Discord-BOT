@@ -4,7 +4,7 @@ ChatGPT Discord BOT
 </h1>
 
 <p align="center">
-<img src="https://github.com/itskdhere/ChatGPT-Discord-BOT/blob/main/ChatGPT.png">
+<img src="ChatGPT.svg">
 </p>
 
 <p align="center">
@@ -14,11 +14,16 @@ ChatGPT Discord BOT
 <a href="https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/ossar.yml" title="OSSAR">
 <img alt="OSSAR" src="https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/ossar.yml/badge.svg?branch=main">
 </a>
+<a href="https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/dependency-review.yml" title="Dependency Review">
+<img alt="Dependency Review" src="https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/dependency-review.yml/badge.svg">
+</a>
 </p>
+
 <p align="center">
 <a href="https://redirect.itskdhere.workers.dev/server/support/invite" title="Join Support Server"><img alt="Discord" src="https://img.shields.io/discord/917792741054894131?color=%235865F2&label=Join Support Server&logo=discord&logoColor=%23FFFFFF&style=for-the-badge"></a>
 </p>
 
+----
 <!--
 [![CodeQL](https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/codeql.yml)
 [![OSSAR](https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/ossar.yml/badge.svg?branch=main)](https://github.com/itskdhere/ChatGPT-Discord-BOT/actions/workflows/ossar.yml)
